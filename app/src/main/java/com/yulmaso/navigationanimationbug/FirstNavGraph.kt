@@ -6,35 +6,21 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navigation
 
 const val FirstGraphRoute = "firstGraph"
 
 private const val FirstScreenRoute = "firstScreen"
 
-fun NavGraphBuilder.firstOldNavGraph(externalNavController: NavController) {
+fun NavGraphBuilder.firstNavGraph(externalNavController: NavController) {
     composable(FirstGraphRoute) {
-        AppNavHost(
+        CommonNavHost(
             navController = rememberNavController(),
             startDestination = FirstScreenRoute
         ) {
-            firstGraphScreens(externalNavController)
+            composable(FirstScreenRoute) {
+                FirstScreen(onNavigateNext = remember { { externalNavController.navigate(SecondGraphRoute) } })
+            }
         }
-    }
-}
-
-fun NavGraphBuilder.firstNewNavGraph(externalNavController: NavController) {
-    navigation(
-        route = FirstGraphRoute,
-        startDestination = FirstScreenRoute
-    ) {
-        firstGraphScreens(externalNavController)
-    }
-}
-
-private fun NavGraphBuilder.firstGraphScreens(externalNavController: NavController) {
-    composable(FirstScreenRoute) {
-        FirstScreen(onNavigateNext = remember { { externalNavController.navigate(SecondGraphRoute) } })
     }
 }
 
