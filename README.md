@@ -1,4 +1,4 @@
-Sample project represeting a bug which occurs in multi-NavHost android navigation architecture. To reproduce the bug quickly click the in-app "back" button twice on the Screen 2.2 and Screen 2.1. Instead of the Screen 1.1 you will see a blank screen which is unexpected.
+Sample project represeting a bug which occurs in multi-NavHost android navigation architecture project. To reproduce the bug quickly click the in-app "back" button twice on the Screen 2.2 and Screen 2.1. Instead of the Screen 1.1 you will see a blank screen which is unexpected. Notice that doubleclicking on the system "back" button doesn't lead to the same effect
 
 To fix the bug you can either:
 - switch to "AppNewNavGraph" in the MainActivity which contains only one NavHost and uses navigation() extension function to build nested graph
