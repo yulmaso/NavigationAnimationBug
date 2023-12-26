@@ -24,8 +24,6 @@ fun AppNavHost(
         startDestination = startDestination,
         modifier = modifier,
         builder = builder,
-        enterTransition = { fadeIn(animationSpec = tween(100)) },
-        exitTransition = { fadeOut(animationSpec = tween(100)) }
 //        enterTransition = { EnterTransition.None },
 //        exitTransition = { ExitTransition.None }
     )
